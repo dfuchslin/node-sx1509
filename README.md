@@ -3,12 +3,34 @@ SparkFun SX1509 library
 
 This is my attempt of a port of the [SparkFun SX1509 Arduino Library](https://github.com/sparkfun/SparkFun_SX1509_Arduino_Library) to javascript for use on a Raspberry Pi.
 
+I am only using the board for simple PWM control using the `analogWrite` method.
 
+Example usage:
+
+```
+const SX1509 = require('node-sx1509')
+
+var io = new SX1509()
+try {
+  await io.begin({ busNumber: 1, deviceAddress: 0x3E })
+  await io.pinMode(pin, SX1509.ANALOG_OUTPUT)
+  await io.analogWrite(0, 75)
+} catch (e) {
+  console.log(e)
+} finally {
+  io.end().catch(e => console.log(e))
+}
+
+```
+
+TODO: all the remaining methods...
+
+
+
+**Since this is a port, including SparkFun's original open source license text below**
 
 License Information
 -------------------
-
-**Since this is a port, including the original open source license text below**
 
 This product is _**open source**_!
 
