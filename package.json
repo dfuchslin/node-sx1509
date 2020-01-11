@@ -16,6 +16,7 @@
     "eslint-plugin-standard": "^4.0.1"
   },
   "dependencies": {
+    "debug": "^4.1.1",
     "i2c-bus": "^5.1.0"
   }
 }
