@@ -1,6 +1,8 @@
 SparkFun SX1509 library
 -----------------------
 
+SparkFun SX1509: https://learn.sparkfun.com/tutorials/sx1509-io-expander-breakout-hookup-guide
+
 This is my attempt of a port of the [SparkFun SX1509 Arduino Library](https://github.com/sparkfun/SparkFun_SX1509_Arduino_Library) to javascript for use on a Raspberry Pi.
 
 I am only using the board for simple PWM control using the `analogWrite` method.
