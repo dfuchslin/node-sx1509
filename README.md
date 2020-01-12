@@ -12,17 +12,25 @@ Example usage:
 ```
 const SX1509 = require('node-sx1509')
 
+var pin = 0
 var io = new SX1509()
 try {
   await io.begin({ busNumber: 1, deviceAddress: 0x3E })
   await io.pinMode(pin, SX1509.ANALOG_OUTPUT)
-  await io.analogWrite(0, 75)
+  await io.analogWrite(pin, 75)
 } catch (e) {
   console.log(e)
 } finally {
   io.end().catch(e => console.log(e))
 }
 
+```
+
+For raspberry pi i2c configuration, see the configuration notes for i2c-bus: https://github.com/fivdi/i2c-bus/blob/master/doc/raspberry-pi-i2c.md
+
+The nodejs program does not need to be run as root if the user is a member of group `i2c`. Run the following command, log out, then log in again:
+```
+sudo usermod -a G i2c USERNAME
 ```
 
 TODO: all the remaining methods...
